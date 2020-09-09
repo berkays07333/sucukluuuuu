@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Project Capire le treble (CLT) by Erfan Abdi <erfangplus@gmail.com>
+# All credits to Erfan Abdi
 
 usage()
 {
@@ -13,7 +14,8 @@ usage()
 }
 
 if [ "$4" == "" ]; then
-    echo "ERROR: Enter all needed parameters"
+    echo "-> ERROR!"
+    echo " - Enter all needed parameters."
     usage
     exit 1
 fi
@@ -29,7 +31,7 @@ toolsdir="$LOCALDIR/../tools"
 HOST="$(uname)"
 make_ext4fs="$toolsdir/$HOST/bin/make_ext4fs"
 
-echo "Prepare File Contexts"
+echo "-> Prepare: File Contexts"
 p="/plat_file_contexts"
 n="/nonplat_file_contexts"
 for f in "$systemdir/system/etc/selinux" "$systemdir/system/vendor/etc/selinux"; do
@@ -74,10 +76,12 @@ if [[ -f "$tempdir/file_contexts" ]]; then
     echo "/pds                    u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
     echo "/tombstones             u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
     echo "/factory                u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
-    echo "/oneplus(/.*)?          u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
     echo "/addon.d                u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
+    echo "/oneplus                u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
+    echo "/oneplus(/.*)?          u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
     echo "/op_odm                 u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
     echo "/avb                    u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
+    echo "/fsg                    u:object_r:rootfs:s0" >> "$tempdir/file_contexts"
     fcontexts="$tempdir/file_contexts"
 fi
 sudo rm -rf "$systemdir/persist"
@@ -90,6 +94,7 @@ sudo mkdir -p "$systemdir/persist"
 sudo mkdir -p "$systemdir/firmware"
 sudo mkdir -p "$systemdir/dsp"
 sudo mkdir -p "$systemdir/cache"
+sudo rm -rf "$systemdir/fsg"
 
 if [ "$5" == "--old" ]; then
     if [ "$outputtype" == "Aonly" ]; then
