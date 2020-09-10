@@ -3,12 +3,6 @@
 # Project OEM-GSI Porter by Erfan Abdi <erfangplus@gmail.com>
 # All credits to Erfan Abdi
 
-# NUKE THE SOURCEFORGE'S LINE IF U DONT WANT THAT
-USER=
-SFDIR=
-# SET UR PASSWORD
-PASSWORD=
-
 usage()
 {
 echo "Usage: $0 <Path to GSI system> <Firmware type> <Output type> [Output Dir]"
@@ -131,6 +125,7 @@ case "$sourcever" in
     *"9"*) flag=true ;;
     *"10"*) flag=true ;;
     *"11"*) flag=true ;;
+    *"S"*) flag=true ;;
 esac
 if [ "$flag" == "false" ]; then
     echo "-> $sourcever is not supported."

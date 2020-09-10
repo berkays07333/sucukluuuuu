@@ -18,4 +18,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     pip install backports.lzma protobuf pycrypto
 fi
 
-sudo chmod -R 0644 *
+git clone --depth 1 https://github.com/erfanoabdi/vendor_vndk.git prebuilt/vendor_vndk
+git clone --depth 1 https://github.com/gmrt/update_payload_extractor.git tools/update_payload_extractor
+git clone --depth 1 https://github.com/erfanoabdi/ROM_resigner.git tools/ROM_resigner
+git clone --depth 1 https://github.com/bkerler/oppo_ozip_decrypt.git tools/oppo_ozip_decrypt 
+
+sudo chmod -R +x *
+sudo chmod -R 0777 *
