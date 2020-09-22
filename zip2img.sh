@@ -14,7 +14,7 @@
 # KDDI .bin
 
 usage() {
-    echo "Usage: [--vendor|-v] $0 <Path to firmware> [Output Dir]"
+    echo "Usage: $0 <Path to firmware> [Output Dir] [--vendor|-v]"
     echo -e "\tPath to firmware: the zip!"
     echo -e "\tOutput Dir: the output dir!"
      echo -e "\t--vendor: Get only vendor.img"
@@ -28,7 +28,7 @@ if [ "$1" == "" ]; then
 fi
 
 PARTITIONS="system"
-EXT4PARTITIONS="system"
+EXT4PARTITIONS=("system" "super")
 OTHERPARTITIONS=""
 
 POSITIONAL=()
