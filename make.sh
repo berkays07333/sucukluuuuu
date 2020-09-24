@@ -245,8 +245,16 @@ if [ "$sourcever" == "9" ]; then
     useold="--old"
 fi
 $scriptsdir/mkimage.sh $systemdir $outputtype $systemsize $output $useold > $tempdir/mkimage.log
-echo "-> Created image ($outputtype): $outputimagename | Size: $(bytesToHuman $systemsize)"
 
+PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+OUTPUT_IMAGE="$PROJECT_DIR/output/$outputimagename"
+
+if [ -f "$OUTPUT_IMAGE" ]; then
+   echo "-> Created image ($outputtype): $outputimagename | Size: $(bytesToHuman $systemsize)"
+else
+   echo "-> Error: Output image for $outputtype: $outputimagename don't exists!"
+   exit 1
+fi
 # Remove lock
 if [ "$outputtype" == "Aonly" ]; then
      sudo rm -rf "$PROJECT_DIR/cache"
