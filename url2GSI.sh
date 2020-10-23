@@ -10,6 +10,8 @@ MOUNTED=false
 CLEAN=false
 LOCK="$PROJECT_DIR/cache/.lock"
 
+echo "-> Warning: VelanGSIs (a.k.a: YuMiGSIs), originally from ErfanGSIs"
+
 if [ -f "$LOCK" ]; then
     echo "-> Stop, wait for the other job to finish before you can start another one."
     exit 1
