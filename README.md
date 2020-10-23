@@ -1,5 +1,8 @@
 ## Requirements
-    Linux or Mac (You can use WSL2 too)
+    Linux or Mac
+    
+## READ
+    If you wanted to modify ErfanGSIs, it is MANDATORY to make Open Source, we must respect the original repository that is Erfan Abdi's ErfanGSIs.
 
 ## Released GSIs (Erfan Abdi/ErfanGSIs)
 Download links: https://mirrors.lolinet.com/firmware/gsi/  
@@ -8,13 +11,13 @@ Telegram group: https://t.me/ErfanGSIs
 Telegram channel: https://t.me/ErfanGSI  
 
 ## Released GSIs (YuMi GSIs/Project)
-Download links: https://sourceforge.net/projects/yumi-project/files/gsi/  
-Telegram group: https://t.me/yumigsis2  
-Telegram channel: https://t.me/yuvendors  
+Download links: https://sourceforge.net/projects/yumi-project/files/
+Telegram group: https://t.me/yusupport  
+Telegram channel: https://t.me/projektyumi  
 
 ### Download tools
 ```
-git clone https://github.com/yukosky/ErfanGSIs.git ErfanGSIs
+git clone https://github.com/Treble-Experience/ErfanGSIs-VelanGSIs.git ErfanGSIs
 ```
 
 ### For setting up requirements
